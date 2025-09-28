@@ -4,7 +4,7 @@ import { apiService } from '../services/api';
 import { NoteModal } from '../components/NoteModal';
 import type { Note, ApiResponse } from '../types';
 
-// Material Icons
+// Material Icons--
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddIcon from '@mui/icons-material/Add';
 import NotesIcon from '@mui/icons-material/Notes';
