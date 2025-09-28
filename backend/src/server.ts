@@ -92,7 +92,7 @@ const connectDB = async (): Promise<void> => {
     await mongoose.connect(mongoURI, connectionOptions);
     console.log('MongoDB connected successfully');
   } catch (error) {
-    console.error('❌ Database connection failed:', error);
+    console.error(' Database connection failed:', error);
     
     // Try alternative connection without some SSL options
     if (error instanceof Error && error.message.includes('SSL')) {
@@ -106,7 +106,7 @@ const connectDB = async (): Promise<void> => {
         });
         console.log('MongoDB connected successfully with alternative settings');
       } catch (altError) {
-        console.error('❌ Alternative connection also failed:', altError);
+        console.error('Alternative connection also failed:', altError);
         process.exit(1);
       }
     } else {
@@ -115,13 +115,13 @@ const connectDB = async (): Promise<void> => {
   }
 };
 
-// Start server
+// Start server -- set up the server
 const startServer = async (): Promise<void> => {
   try {
     await connectDB();
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
-      console.log(`📖 API Documentation: http://localhost:${PORT}/api/health`);
+      console.log(` API Documentation: http://localhost:${PORT}/api/health`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
