@@ -4,7 +4,7 @@ import { protect } from '../middleware/auth';
 
 const router = Router();
 
-// All routes are protected
+// All routes are protected -- protected routes
 router.use(protect);
 
 router.route('/')

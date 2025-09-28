@@ -4,7 +4,7 @@ import { protect } from '../middleware/auth';
 
 const router = Router();
 
-// Public routes
+// Public routes- public routes
 router.post('/send-otp', sendOTP);
 router.post('/signup', signup);
 router.post('/signin', signin);
