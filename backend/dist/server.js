@@ -42,6 +42,18 @@ app.get('/api/health', (req, res) => {
         timestamp: new Date().toISOString(),
     });
 });
+app.get('/', (req, res) => {
+    res.json({
+        success: true,
+        message: 'Welcome to Highway Delight API!',
+        version: '1.0.0',
+        endpoints: {
+            health: '/api/health',
+            auth: '/api/auth',
+            notes: '/api/notes'
+        }
+    });
+});
 app.use('/api/auth', auth_1.default);
 app.use('/api/notes', notes_1.default);
 app.use('*', (req, res) => {
@@ -69,7 +81,7 @@ const connectDB = async () => {
         console.log('MongoDB connected successfully');
     }
     catch (error) {
-        console.error('❌ Database connection failed:', error);
+        console.error(' Database connection failed:', error);
         if (error instanceof Error && error.message.includes('SSL')) {
             console.log('🔄 Attempting connection with alternative SSL settings...');
             try {
@@ -82,7 +94,7 @@ const connectDB = async () => {
                 console.log('MongoDB connected successfully with alternative settings');
             }
             catch (altError) {
-                console.error('❌ Alternative connection also failed:', altError);
+                console.error('Alternative connection also failed:', altError);
                 process.exit(1);
             }
         }
@@ -96,7 +108,7 @@ const startServer = async () => {
         await connectDB();
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);
-            console.log(`📖 API Documentation: http://localhost:${PORT}/api/health`);
+            console.log(` API Documentation: http://localhost:${PORT}/api/health`);
         });
     }
     catch (error) {

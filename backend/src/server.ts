@@ -57,6 +57,20 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
+// Root route handler
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    success: true,
+    message: 'Welcome to Highway Delight API!',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      notes: '/api/notes'
+    }
+  });
+});
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
