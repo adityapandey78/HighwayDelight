@@ -32,7 +32,7 @@ export const protect = async (
     }
 
     try {
-      // Verify token
+      // Verify token -- Added auth middleware
       const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
 
       // Get user from token

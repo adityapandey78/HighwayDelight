@@ -131,7 +131,7 @@ export const signin = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Check for user and include password
+    // Check for user and include password -- auth controller
     const user = await User.findOne({ email }).select('+password');
     if (!user) {
       const response: ApiResponse = {
