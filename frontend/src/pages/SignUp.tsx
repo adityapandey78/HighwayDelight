@@ -15,7 +15,7 @@ const SignUp: React.FC = () => {
     password: '',
     otp: '',
   });
-  const [step, setStep] = useState(1); // 1 for form, 2 for OTP
+  const [step, setStep] = useState(1); // 1 for form, 2 for OTP..
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSendingOTP, setIsSendingOTP] = useState(false);
