@@ -1,3 +1,4 @@
+// SignUp Page Component - Handles user registration with OTP verification
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../hooks/useToast';
