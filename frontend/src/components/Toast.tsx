@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-// Material Icons
+// Material Icons for it
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import WarningIcon from '@mui/icons-material/Warning';
