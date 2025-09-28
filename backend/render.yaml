@@ -1,0 +1,23 @@
+# Render Deployment Configuration
+
+# This file tells Render how to deploy your backend
+version: 2
+
+services:
+  - type: web
+    name: highway-delight-backend
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    # Add your environment variables in Render dashboard:
+    # MONGODB_URI, JWT_SECRET, SMTP_USER, SMTP_PASS, etc.

@@ -171,14 +171,35 @@ The application uses a modern design system with:
 
 ## Deployment
 
-### Backend Deployment
-1. Build the project: `npm run build`
-2. Set production environment variables
-3. Deploy to your preferred platform (Heroku, Railway, DigitalOcean, etc.)
+This application is optimized for deployment on Vercel, which provides seamless hosting for both frontend and backend.
 
-### Frontend Deployment
-1. Build the project: `npm run build`
-2. Deploy the `dist` folder to your hosting service
+### Quick Deployment Steps:
+
+1. **Prepare your code:**
+   ```bash
+   git add .
+   git commit -m "prepare for vercel deployment"
+   git push origin main
+   ```
+
+2. **Deploy Backend:**
+   - Create new Vercel project from your GitHub repository
+   - Set Root Directory to `backend`
+   - Configure environment variables (MongoDB, JWT, email settings)
+   - Deploy and copy the domain URL
+
+3. **Deploy Frontend:**
+   - Create another Vercel project from same GitHub repository
+   - Set Root Directory to `frontend`
+   - Add `VITE_API_URL` environment variable with your backend domain
+   - Deploy
+
+### Detailed Instructions
+For complete step-by-step deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### Environment Variables Needed:
+- **Backend**: MongoDB URI, JWT secret, email credentials, CORS settings
+- **Frontend**: API URL pointing to your deployed backend
 ---
 This readme has been generated with the help of AI.
 **Happy Coding!**

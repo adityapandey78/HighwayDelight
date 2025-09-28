@@ -9,7 +9,8 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "watch": "tsc --watch",
     "clean": "rimraf dist",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@types/nodemailer": "^7.0.1",
