@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
 
-// Material Icons
+// Material Icons --
 import FreezeIcon from '@mui/icons-material/AcUnit';
 import LockIcon from '@mui/icons-material/Lock';
 import NoteIcon from '@mui/icons-material/Note';
