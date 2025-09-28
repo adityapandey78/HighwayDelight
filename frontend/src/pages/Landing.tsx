@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 // Material Icons --
@@ -9,10 +10,16 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 
 const Landing: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (user) {
+      // If user is already logged in, redirect to dashboard
+      navigate('/dashboard', { replace: true });
+    }
+  }, [user, navigate]);
 
   if (user) {
-    // If user is already logged in, redirect to dashboard
-    window.location.href = '/dashboard';
     return null;
   }
 
@@ -29,18 +36,18 @@ const Landing: React.FC = () => {
               <span className="text-2xl font-bold text-gray-900">Highway Delight</span>
             </div>
             <div className="flex items-center space-x-4">
-              <a
-                href="/signin"
+              <Link
+                to="/signin"
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 Sign In
-              </a>
-              <a
-                href="/signup"
+              </Link>
+              <Link
+                to="/signup"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -59,18 +66,18 @@ const Landing: React.FC = () => {
                 Your personal note-taking companion with secure authentication and seamless experience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/signup"
+                <Link
+                  to="/signup"
                   className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-colors"
                 >
                   Create Account
-                </a>
-                <a
-                  href="/signin"
+                </Link>
+                <Link
+                  to="/signin"
                   className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg transition-colors"
                 >
                   Sign In
-                </a>
+                </Link>
               </div>
             </div>
           </div>
