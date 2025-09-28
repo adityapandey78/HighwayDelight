@@ -5,7 +5,7 @@ interface OTPData {
   expires: Date;
 }
 
-// Create transporter function that gets credentials at runtime
+// Create transporter function that gets credentials at runtime and proper email services
 const createTransporter = () => {
   console.log('Creating transporter with:');
   console.log('SMTP_USER:', process.env.SMTP_USER);
