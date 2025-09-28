@@ -69,7 +69,7 @@ const UserSchema: Schema = new Schema(
   }
 );
 
-// Hash password before saving
+// Hash password before saving-- password setup for it
 UserSchema.pre<IUser>('save', async function (next) {
   // Only hash the password if it has been modified (or is new)
   if (!this.isModified('password')) return next();

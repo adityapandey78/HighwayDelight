@@ -32,7 +32,7 @@ const NoteSchema: Schema = new Schema(
   }
 );
 
-// Index for efficient querying by user
+// Index for efficient querying by user -- added notes model
 NoteSchema.index({ userId: 1, createdAt: -1 });
 
 export default mongoose.model<INote>('Note', NoteSchema);
