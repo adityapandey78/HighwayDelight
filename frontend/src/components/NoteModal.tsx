@@ -5,6 +5,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import type { Note } from '../types';
 
+//Implemeted the notes modal
 interface NoteModalProps {
   note: Note | null;
   isOpen: boolean;
