@@ -30,10 +30,10 @@ const SignUp: React.FC = () => {
     }));
   };
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL||'http://localhost:5000/api';
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
     // Basic validation
     if (!formData.name || !formData.email || !formData.dateOfBirth || !formData.password) {
       const errorMessage = 'Please fill in all fields';
@@ -41,12 +41,10 @@ const SignUp: React.FC = () => {
       showError(errorMessage);
       return;
     }
-    
     setIsSendingOTP(true);
-    
     try {
       // Send OTP to email
-      const response = await fetch('http://localhost:5000/api/auth/send-otp', {
+      const response = await fetch(`${API_BASE_URL}/auth/send-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,11 +54,8 @@ const SignUp: React.FC = () => {
           name: formData.name,
         }),
       });
-      
       const data = await response.json();
-      
       if (data.success) {
-        // Move to OTP step
         setStep(2);
         showSuccess('OTP sent to your email successfully!');
       } else {

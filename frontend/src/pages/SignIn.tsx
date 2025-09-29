@@ -55,23 +55,22 @@ const SignIn: React.FC = () => {
     }
   };
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL ||'http://localhost:5000/api';
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!forgotEmail) {
       showError('Please enter your email address');
       return;
     }
-
     setIsSendingReset(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/forgot-password', {
+      const response = await fetch(`${API_BASE_URL}/auth/forgot-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email: forgotEmail }),
       });
-
       const data = await response.json();
       if (data.success) {
         showSuccess('Password reset instructions sent to your email!');
